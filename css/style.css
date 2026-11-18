@@ -1687,10 +1687,6 @@ color: var(--navy) !important;
 /* =========================================================
    13. ANIMACIONES
    ---------------------------------------------------------
-   Nota: se usa animation-fill-mode "backwards" (no "both")
-   para que, al terminar la entrada, el elemento vuelva a su
-   estilo normal y los efectos :hover con transform funcionen.
-   Con "both" la animación bloqueaba el transform del hover.
    ========================================================= */
 
 @keyframes fadeUp {
@@ -1742,9 +1738,7 @@ color: var(--navy) !important;
 /* =========================================================
    15. TEMA VISUAL PROFESIONAL — CALL CENTER
    ---------------------------------------------------------
-   Capa de diseño: tipografía, tarjetas, hero, navbar,
-   formularios y footer. Va al final para sobrescribir lo
-   anterior sin tocar la estructura.
+
    ========================================================= */
 
 html {
@@ -2163,423 +2157,180 @@ label {
   color: var(--navy);
 }
 
-/* --- Footer ------------------------------------------------ */
+/* =====================================================
+   PROFESSIONAL FOOTER
+   ATOZ SOLUTIONS CONTACT CENTER
+===================================================== */
+
 .site-footer {
-  padding: clamp(3rem, 6vw, 5.5rem) 0 2.5rem;
-  background: linear-gradient(180deg, #1E3A5F 0%, #142B47 100%);
-  border-top: 4px solid var(--gold);
+    padding: 75px 0 0;
+    background: linear-gradient(
+        145deg,
+        #1E3A5F 0%,
+        #142B47 55%,
+        #0D1B2A 100%
+    );
+    border-top: 4px solid var(--gold);
+    color: #ffffff;
 }
+
+/* MAIN FOOTER */
+
+.footer-main {
+    padding-bottom: 45px;
+}
+
+/* BRAND */
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.footer-logo {
+    width: 105px;
+    max-width: 35%;
+    height: auto;
+    object-fit: contain;
+}
+
+.footer-company-name {
+    margin: 0;
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: 17px;
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+.footer-description {
+    max-width: 430px;
+    margin-bottom: 25px;
+    color: #d5dfeb;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+/* HEADINGS */
 
 .site-footer .footer-heading {
-  margin-bottom: 1.25rem;
-  font-family: var(--font-heading);
-  font-size: .85rem;
-  font-weight: 700;
-  letter-spacing: .12em;
-  color: var(--gold);
-}
-
-.site-footer a {
-  display: inline-block;
-  transition: color var(--t-fast), transform var(--t-fast);
-}
-
-.site-footer ul a:hover {
-  color: var(--gold);
-  transform: translateX(4px);
-}
-
-/* --- Utilidades nuevas (opcionales) ------------------------- */
-
-/* Tarjeta genérica: <div class="card-pro"> */
-.card-pro {
-  padding: 2rem 1.75rem;
-  background: var(--surface);
-  border: 1px solid var(--border-soft);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
-  transition: transform .35s ease, box-shadow .35s ease;
-}
-
-.card-pro:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lift);
-}
-
-/* Etiqueta con punto "en vivo": <span class="pill-live">Agentes en línea 24/7</span> */
-.pill-live {
-  display: inline-flex;
-  align-items: center;
-  gap: .55rem;
-  padding: .4rem .9rem;
-  background: rgba(255, 255, 255, .14);
-  border: 1px solid rgba(255, 255, 255, .28);
-  border-radius: 999px;
-  font-size: .85rem;
-  font-weight: 700;
-  color: #fff;
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
-}
-
-.pill-live::before {
-  content: "";
-  width: 9px;
-  height: 9px;
-  background: #4ADE80;
-  border-radius: 50%;
-  animation: livePulse 1.8s ease-out infinite;
-}
-
-@keyframes livePulse {
-  0%   { box-shadow: 0 0 0 0 rgba(74, 222, 128, .6); }
-  100% { box-shadow: 0 0 0 10px rgba(74, 222, 128, 0); }
-}
-
-/* Los hover con elevación se desactivan en pantallas táctiles */
-@media (hover: none) {
-  .service-feature:hover,
-  .block-team-member-1:hover,
-  .card-pro:hover {
-    transform: none;
-  }
-}
-
-/* =====================================================
-   SERVICES - CUSTOM ILLUSTRATIONS
-   ATOZ SOLUTIONS
-===================================================== */
-
-.service-illustration {
-    position: relative;
-    width: 100%;
-    min-height: 470px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 35px;
-    overflow: hidden;
-    border-radius: 22px;
-    background: #f2f6fa;
-}
-
-/* =====================================================
-   CONTACT CENTER BACKGROUND
-===================================================== */
-
-.contact-illustration {
-    background: linear-gradient(145deg, #f3f7fb, #e8f0f7);
-}
-
-.illustration-orbit {
-    position: absolute;
-    width: 340px;
-    height: 340px;
-    border-radius: 50%;
-    background: #dce8f1;
-}
-
-/* =====================================================
-   CUSTOMER SUPPORT AGENT
-===================================================== */
-
-.support-agent-card {
-    position: relative;
-    z-index: 2;
-    width: 270px;
-    padding: 20px;
-    background: #fff;
-    border-radius: 18px;
-    box-shadow: 0 15px 45px rgba(13, 27, 42, .12);
-    text-align: center;
-}
-
-.support-agent-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #0D1B2A;
-    font-size: 12px;
-    font-weight: 700;
-}
-
-.support-agent-header i {
-    margin-left: auto;
-    font-size: 18px;
-}
-
-.status-dot {
-    display: inline-block;
-    width: 9px;
-    height: 9px;
-    flex-shrink: 0;
-    background: #82E111;
-    border-radius: 50%;
-}
-
-.support-agent-avatar {
-    width: 170px;
-    margin: 10px auto 0;
-}
-
-.support-agent-avatar svg {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-.support-agent-info h4 {
-    margin: 5px 0;
-    color: #0D1B2A;
-    font-size: 17px;
+    margin-bottom: 24px;
+    color: var(--gold);
+    font-family: var(--font-heading);
+    font-size: 15px;
     font-weight: 800;
-}
-
-.support-agent-info p {
-    margin: 0;
-    color: #7b8794;
-    font-size: 12px;
-}
-
-.support-agent-footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 15px;
-    padding-top: 12px;
-    border-top: 1px solid #edf0f3;
-    color: #536273;
-    font-size: 11px;
-    font-weight: 600;
-}
-
-/* =====================================================
-   FLOATING SERVICE CARDS
-===================================================== */
-
-.service-floating-card {
-    position: absolute;
-    z-index: 3;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 13px;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(13, 27, 42, .12);
-}
-
-.service-floating-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 35px;
-    height: 35px;
-    flex-shrink: 0;
-    border-radius: 9px;
-}
-
-.service-floating-text strong,
-.service-floating-text span {
-    display: block;
-}
-
-.service-floating-text strong {
-    color: #0D1B2A;
-    font-size: 11px;
-    font-weight: 700;
-}
-
-.service-floating-text span {
-    margin-top: 3px;
-    color: #89939e;
-    font-size: 9px;
-}
-
-/* =====================================================
-   CONTACT CENTER ICON COLORS
-===================================================== */
-
-.phone-icon {
-    background: #e5f5ff;
-    color: #1685c5;
-}
-
-.chat-icon {
-    background: #eaf8df;
-    color: #559b18;
-}
-
-.email-icon {
-    background: #fff0e6;
-    color: #e58a37;
-}
-
-.live-badge {
-    color: #36a853;
-    font-size: 9px;
-    font-weight: 800;
-}
-
-/* CONTACT CENTER CARD POSITIONS */
-
-.inbound-card {
-    top: 65px;
-    left: 12px;
-}
-
-.livechat-card {
-    top: 190px;
-    right: 5px;
-}
-
-.email-card {
-    bottom: 55px;
-    left: 5px;
-}
-
-/* =====================================================
-   MARKETING ILLUSTRATION
-===================================================== */
-
-.marketing-illustration {
-    background: linear-gradient(145deg, #edf5ed, #e3eee6);
-}
-
-.marketing-orbit {
-    position: absolute;
-    width: 340px;
-    height: 340px;
-    border-radius: 50%;
-    background: #d6e8d5;
-}
-
-/* =====================================================
-   MARKETING DASHBOARD
-===================================================== */
-
-.marketing-dashboard {
-    position: relative;
-    z-index: 2;
-    width: 320px;
-    padding: 24px;
-    background: #fff;
-    border-radius: 18px;
-    box-shadow: 0 15px 45px rgba(13, 27, 42, .12);
-}
-
-.marketing-dashboard-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.marketing-dashboard-header span {
-    color: #89939e;
-    font-size: 9px;
-    font-weight: 700;
     letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
-.marketing-dashboard-header h4 {
-    margin: 5px 0 0;
-    color: #0D1B2A;
-    font-size: 17px;
-    font-weight: 800;
+/* QUICK LINKS */
+
+.footer-links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
-.dashboard-icon {
+.footer-links li {
+    margin-bottom: 13px;
+}
+
+.footer-links a {
+    display: inline-block;
+    color: #d5dfeb;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color .25s ease, transform .25s ease;
+}
+
+.footer-links a:hover {
+    color: var(--gold);
+    transform: translateX(5px);
+}
+
+/* SOCIAL MEDIA */
+
+.footer-social {
+    margin-top: 30px;
+}
+
+.footer-social .footer-heading {
+    margin-bottom: 15px;
+}
+
+.footer-social-links {
     display: flex;
     align-items: center;
+    gap: 12px;
+}
+
+.footer-social-link {
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    color: #fff;
-    background: #0D1B2A;
-    border-radius: 11px;
+    gap: 11px;
+    min-height: 44px;
+    padding: 10px 18px;
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all .3s ease;
 }
 
-.marketing-chart {
-    height: 145px;
-    margin-top: 25px;
-    padding: 15px 8px 0;
-    border-bottom: 1px solid #e9edf0;
-}
-
-.chart-bars {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-around;
-    height: 100%;
-    gap: 10px;
-}
-
-.chart-bars span {
-    width: 24px;
-    height: var(--bar-height);
-    background: linear-gradient(180deg, #82E111, #4e9910);
-    border-radius: 5px 5px 0 0;
-}
-
-.marketing-metrics {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    padding-top: 18px;
-}
-
-.marketing-metrics div span,
-.marketing-metrics div strong {
-    display: block;
-}
-
-.marketing-metrics div span {
-    color: #89939e;
-    font-size: 11px;
-}
-
-.marketing-metrics div strong {
-    margin-top: 4px;
-    color: #0D1B2A;
+.footer-social-link i {
     font-size: 19px;
-    font-weight: 800;
 }
 
-/* =====================================================
-   MARKETING ICON COLORS
-===================================================== */
-
-.sales-icon {
-    color: #e58a37;
-    background: #fff0e6;
+.facebook-link i {
+    color: #1877F2;
 }
 
-.strategy-icon {
-    color: #1685c5;
-    background: #e5f5ff;
+.facebook-link:hover {
+    background: #1877F2;
+    border-color: #1877F2;
+    color: #ffffff;
+    transform: translateY(-3px);
 }
 
-.customer-icon {
-    color: #559b18;
-    background: #eaf8df;
+.facebook-link:hover i {
+    color: #ffffff;
 }
 
-/* MARKETING CARD POSITIONS */
+/* FOOTER BOTTOM */
 
-.sales-card {
-    top: 55px;
-    left: 5px;
+.footer-bottom {
+    padding: 25px 0;
+    border-top: 1px solid rgba(255,255,255,.15);
 }
 
-.strategy-card {
-    top: 195px;
-    right: 3px;
+.footer-copyright {
+    margin: 0;
+    color: #ffffff;
+    font-size: 13px;
+    line-height: 1.8;
 }
 
-.customer-card {
-    bottom: 50px;
-    left: 5px;
+.footer-legal-links {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 22px;
+}
+
+.footer-legal-links a {
+    color: #ffffff;
+    font-size: 13px;
+    text-decoration: none;
+    transition: color .25s ease;
+}
+
+.footer-legal-links a:hover {
+    color: var(--gold);
 }
 
 /* =====================================================
@@ -2588,8 +2339,16 @@ label {
 
 @media (max-width: 991px) {
 
-    .service-illustration {
-        min-height: 450px;
+    .site-footer {
+        padding-top: 60px;
+    }
+
+    .footer-brand {
+        max-width: 500px;
+    }
+
+    .footer-description {
+        max-width: 550px;
     }
 
 }
@@ -2598,102 +2357,86 @@ label {
    MOBILE RESPONSIVE
 ===================================================== */
 
-@media (max-width: 575px) {
+@media (max-width: 767px) {
 
-    .service-illustration {
-        min-height: 390px;
-        padding: 15px;
-        border-radius: 16px;
+    .site-footer {
+        padding-top: 45px;
     }
 
-    .illustration-orbit,
-    .marketing-orbit {
-        width: 260px;
-        height: 260px;
+    .footer-main {
+        padding-bottom: 15px;
     }
 
-    .support-agent-card {
-        width: 220px;
-        padding: 14px;
+    .footer-brand {
+        align-items: flex-start;
+        gap: 14px;
     }
 
-    .support-agent-avatar {
-        width: 135px;
+    .footer-logo {
+        width: 85px;
     }
 
-    .marketing-dashboard {
-        width: 245px;
-        padding: 17px;
+    .footer-company-name {
+        font-size: 15px;
     }
 
-    .marketing-chart {
-        height: 110px;
+    .footer-description {
+        font-size: 13px;
     }
 
-    .chart-bars {
-        gap: 7px;
+    .site-footer .footer-heading {
+        margin-bottom: 17px;
+        font-size: 14px;
     }
 
-    .chart-bars span {
-        width: 18px;
+    .footer-links li {
+        margin-bottom: 12px;
     }
 
-    .service-floating-card {
-        gap: 7px;
-        padding: 9px;
-        max-width: 175px;
+    .footer-social {
+        margin-top: 25px;
     }
 
-    .service-floating-icon {
-        width: 29px;
-        height: 29px;
+    .footer-contact {
+        gap: 13px;
+    }
+
+    .footer-bottom {
+        padding: 22px 0;
+    }
+
+    .footer-copyright {
+        margin-bottom: 18px;
         font-size: 12px;
     }
 
-    .service-floating-text strong {
-        font-size: 9px;
+    .footer-legal-links {
+        justify-content: center;
+        gap: 15px;
     }
 
-    .service-floating-text span {
-        font-size: 8px;
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 380px) {
+
+    .footer-brand {
+        flex-direction: column;
     }
 
-    .live-badge {
-        font-size: 8px;
+    .footer-logo {
+        width: 95px;
+        max-width: 100%;
     }
 
-    /* CONTACT CENTER */
-
-    .inbound-card {
-        top: 20px;
-        left: 2px;
+    .footer-social-link {
+        padding: 9px 14px;
+        font-size: 13px;
     }
 
-    .livechat-card {
-        top: 165px;
-        right: 2px;
-    }
-
-    .email-card {
-        bottom: 15px;
-        left: 2px;
-    }
-
-    /* MARKETING */
-
-    .sales-card {
-        top: 20px;
-        left: 2px;
-    }
-
-    .strategy-card {
-        top: 165px;
-        right: 2px;
-    }
-
-    .customer-card {
-        bottom: 15px;
-        left: 2px;
+    .footer-legal-links {
+        gap: 12px;
     }
 
 }
